@@ -22,7 +22,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(feature = "ink")]
-pub use ink;
+pub use ink::*;
 #[cfg(feature = "substrate")]
 pub mod substrate;
 
