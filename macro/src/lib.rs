@@ -541,6 +541,31 @@ pub fn mock(attrs: TokenStream, enum_item: TokenStream) -> TokenStream {
 ///
 /// impl Trait for TestExtension {}
 /// ```
+///
+/// # Usage with ink!
+///
+/// To integrate such an extension with ink!, you can use the following example:
+///
+/// ```ignore
+/// use ink::env::{DefaultEnvironment, Environment};
+///
+/// #[derive(Debug, Clone, PartialEq, Eq)]
+/// #[cfg_attr(feature = "std", derive(scale_info::TypeInfo))]
+/// pub enum CustomEnvironment {}
+///
+/// impl Environment for CustomEnvironment {
+///     const MAX_EVENT_TOPICS: usize =
+///         <DefaultEnvironment as Environment>::MAX_EVENT_TOPICS;
+///
+///     type AccountId = <DefaultEnvironment as Environment>::AccountId;
+///     type Balance = <DefaultEnvironment as Environment>::Balance;
+///     type Hash = <DefaultEnvironment as Environment>::Hash;
+///     type BlockNumber = <DefaultEnvironment as Environment>::BlockNumber;
+///     type Timestamp = <DefaultEnvironment as Environment>::Timestamp;
+///
+///     type ChainExtension = TestExtension;
+/// }
+/// ```
 #[proc_macro_attribute]
 pub fn ink_extension(attrs: TokenStream, struct_item: TokenStream) -> TokenStream {
     match extension::ink(attrs.into(), struct_item.into()) {

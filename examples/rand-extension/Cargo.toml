@@ -5,10 +5,10 @@ authors = ["[your_name] <[your_email]>"]
 edition = "2021"
 
 [dependencies]
-ink = { git = "https://github.com/paritytech/ink", rev = "4655a8b4413cb50cbc38d1b7c173ad426ab06cde", default-features = false }
+ink = { version = "4.2.0", default-features = false }
 
 scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
-scale-info = { version = "2.3", default-features = false, features = ["derive"], optional = true }
+scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
 
 rand-extension = { path = "./chain-extension", default-features = false, features = ["ink"] }
 
@@ -16,12 +16,7 @@ rand-extension = { path = "./chain-extension", default-features = false, feature
 obce = { git = "https://github.com/727-Ventures/obce", default-features = false, features = ["ink-std"] }
 
 [lib]
-name = "test_contract"
 path = "lib.rs"
-crate-type = [
-    # Used for normal contract Wasm blobs.
-    "cdylib",
-]
 
 [features]
 default = ["std"]

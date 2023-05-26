@@ -7,7 +7,7 @@ use obce::substrate::{
     ChainExtensionEnvironment,
     ExtensionContext,
 };
-use pallet_randomness_collective_flip::Config as RandomnessConfig;
+use pallet_insecure_randomness_collective_flip::Config as RandomnessConfig;
 
 use crate::{RandExtension, RandomReadErr};
 

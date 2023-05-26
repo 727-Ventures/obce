@@ -1,8 +1,27 @@
-#![cfg_attr(not(feature = "std"), no_std)]
+#![cfg_attr(not(feature = "std"), no_std, no_main)]
 
-#[ink::contract]
+use ink::env::{DefaultEnvironment, Environment};
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "std", derive(scale_info::TypeInfo))]
+pub enum CustomEnvironment {}
+
+impl Environment for CustomEnvironment {
+    const MAX_EVENT_TOPICS: usize =
+        <DefaultEnvironment as Environment>::MAX_EVENT_TOPICS;
+
+    type AccountId = <DefaultEnvironment as Environment>::AccountId;
+    type Balance = <DefaultEnvironment as Environment>::Balance;
+    type Hash = <DefaultEnvironment as Environment>::Hash;
+    type BlockNumber = <DefaultEnvironment as Environment>::BlockNumber;
+    type Timestamp = <DefaultEnvironment as Environment>::Timestamp;
+
+    type ChainExtension = rand_extension::ink::Extension;
+}
+
+#[ink::contract(env = crate::CustomEnvironment)]
 mod test_contract {
-    use rand_extension::{ink::Extension, RandExtension, RandomReadErr};
+    use rand_extension::{RandExtension, RandomReadErr};
 
     #[ink(storage)]
     pub struct TestContract {
@@ -28,7 +47,7 @@ mod test_contract {
 
         #[ink(message)]
         pub fn update(&mut self, val: [u8; 32]) -> Result<(), RandomReadErr> {
-            let new_random = Extension.fetch_random(val)?;
+            let new_random = self.env().extension().fetch_random(val)?;
             self.value = new_random;
             self.env().emit_event(RandomUpdated { new: new_random });
             Ok(())

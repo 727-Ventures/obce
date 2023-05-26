@@ -7,7 +7,7 @@ mod test_contract {
         ChainExtension as _,
         Error,
     };
-    use ink_env::DefaultEnvironment;
+    use ink::env::DefaultEnvironment;
 
     #[ink(storage)]
     pub struct TestContract {}
