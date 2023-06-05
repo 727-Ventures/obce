@@ -29,20 +29,20 @@ scale-info = { version = "2.3", default-features = false, features = ["derive"] 
 obce-macro = { path = "macro", default-features = false }
 
 # Substrate deps
-sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
-pallet-contracts = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
+sp-std = { version = "7.0.0", default-features = false, optional = true }
+sp-runtime = { version = "23.0.0", default-features = false, optional = true }
+sp-core = { version = "20.0.0", default-features = false, optional = true }
+frame-support = { version = "21.0.0", default-features = false, optional = true }
+frame-system = { version = "21.0.0", default-features = false, optional = true }
+pallet-contracts = { version = "20.0.0", default-features = false, optional = true }
 
 # Ink deps
 ink = { version = "4.2.0", default-features = false, optional = true }
 ink_engine = { version = "4.2.0", default-features = false, optional = true }
 
 [dev-dependencies]
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, features = ["std"] }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, features = ["std"] }
+frame-support = { version = "21.0.0", default-features = false, features = ["std"] }
+frame-system = { version = "21.0.0", default-features = false, features = ["std"] }
 ink = { version = "4.2.0", default-features = false, features = ["std"] }
 trybuild = "1.0"
 

@@ -11,7 +11,7 @@ scale-info = { version = "2", default-features = false, features = ["derive"] }
 
 ink = { version = "4.2.0", default-features = false, optional = true }
 
-pallet-insecure-randomness-collective-flip = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.42", default-features = false, optional = true }
+pallet-insecure-randomness-collective-flip = { version = "9.0.0", default-features = false, optional = true }
 
 [features]
 default = ["std"]
