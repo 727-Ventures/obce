@@ -262,24 +262,18 @@ impl TryFrom<&ItemImpl> for ExtensionContext {
 
     fn try_from(impl_item: &ItemImpl) -> Result<Self, Self::Error> {
         let Type::Path(path) = impl_item.self_ty.as_ref() else {
-            return Err(format_err_spanned!(
-                impl_item,
-                "the type should be `ExtensionContext`"
-            ));
+            return Err(format_err_spanned!(impl_item, "the type should be `ExtensionContext`"))
         };
 
         let Some(extension) = path.path.segments.last() else {
-            return Err(format_err_spanned!(
-                path,
-                "the type should be `ExtensionContext`"
-            ));
+            return Err(format_err_spanned!(path, "the type should be `ExtensionContext`"))
         };
 
         let PathArguments::AngleBracketed(generic_args) = &extension.arguments else {
             return Err(format_err_spanned!(
                 path,
                 "`ExtensionContext` should have 5 generics as `<'a, E, T, Env, Extension>`"
-            ));
+            ))
         };
 
         let (lifetime1, env, substrate, obce_env, extension) =
@@ -380,7 +374,7 @@ fn handle_weight_attribute<'a, I: IntoIterator<Item = &'a NestedMeta>>(
 ) -> Result<(Option<TokenStream>, bool), Error> {
     let weight_params = iter.into_iter().find_map(|attr| {
         let NestedMeta::Meta(Meta::List(list)) = attr else {
-            return None;
+            return None
         };
 
         let Some(ident) = list.path.get_ident() else {

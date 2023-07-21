@@ -29,7 +29,7 @@ pub fn generate(_: TokenStream, input: TokenStream) -> Result<TokenStream, Error
         return Err(format_err_spanned!(
             impl_item,
             "impl marked as mocked should have a trait present"
-        ));
+        ))
     };
     let item = impl_item.self_ty;
 
