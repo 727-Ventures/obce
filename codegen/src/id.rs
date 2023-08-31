@@ -35,7 +35,7 @@ pub fn generate(input: TokenStream) -> Result<TokenStream, Error> {
         // whether a user wants to get an identifier of a chain extension
         // or a chain extension method itself.
         _ => {
-            return Err(format_err_spanned!(
+            Err(format_err_spanned!(
                 path,
                 "id macro supports only two-segment paths (ChainExtension, ChainExtension::method)"
             ))

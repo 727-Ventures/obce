@@ -116,7 +116,7 @@ where
 {
     fn find_by_name(self, name: &str) -> Option<(LitOrPath<'a>, &'a Ident)> {
         self.into_iter().find_map(|attr| {
-            match attr.borrow() {
+            match attr {
                 NestedMeta::Meta(Meta::NameValue(value)) => {
                     if let Some(ident) = value.path.get_ident() {
                         (ident == name).then_some((LitOrPath::Lit(&value.lit), ident))
@@ -145,7 +145,7 @@ impl<'a> InputBindings<'a> {
     /// Iterate over "special" bindings identifiers.
     ///
     /// For example, it converts `(one: u32, two: u32)` into `(__ink_binding_0, __ink_binding_1)`.
-    pub fn iter_call_params(&self) -> impl Iterator<Item = Ident> + ExactSizeIterator + '_ {
+    pub fn iter_call_params(&self) -> impl ExactSizeIterator<Item = Ident> + '_ {
         self.bindings
             .iter()
             .enumerate()
@@ -155,7 +155,7 @@ impl<'a> InputBindings<'a> {
     /// Iterate over raw bindings patterns.
     ///
     /// The provided iterator makes no conversions from the inner values stored inside [`InputBindings`].
-    pub fn iter_raw_call_params(&self) -> impl Iterator<Item = &Pat> + ExactSizeIterator + '_ {
+    pub fn iter_raw_call_params(&self) -> impl ExactSizeIterator<Item = &Pat> + '_ {
         self.bindings.iter().map(|pat| &*pat.pat)
     }
 

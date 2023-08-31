@@ -377,9 +377,7 @@ fn handle_weight_attribute<'a, I: IntoIterator<Item = &'a NestedMeta>>(
             return None
         };
 
-        let Some(ident) = list.path.get_ident() else {
-            return None
-        };
+        let ident = list.path.get_ident()?;
 
         (ident == "weight").then_some((&list.nested, ident))
     });

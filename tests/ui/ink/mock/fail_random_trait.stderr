@@ -13,4 +13,5 @@ error[E0277]: the trait bound `(dyn Trait + 'static): ExtensionDescription` is n
   | ^^^^^^^^^^^^^ the trait `ExtensionDescription` is not implemented for `(dyn Trait + 'static)`
   |
   = help: see issue #48214
+  = help: add `#![feature(trivial_bounds)]` to the crate attributes to enable
   = note: this error originates in the attribute macro `obce::mock` (in Nightly builds, run with -Z macro-backtrace for more info)
