@@ -14,8 +14,8 @@ authors = ["727.Ventures <green.baneling@727.ventures>"]
 edition = "2021"
 
 license = "MIT"
-repository = "TODO:"
-documentation = "TODO:"
+repository = "https://github.com/Brushfam/obce"
+documentation = "https://github.com/Brushfam/obce/blob/main/README.md"
 homepage = "https://727.ventures"
 description = "OpenBursh chain extension(OBCE) - util to simplify chain extension development."
 keywords = ["wasm", "727.ventures", "smart-contracts", "blockchain", "chain-extension"]
@@ -26,23 +26,24 @@ include = ["Cargo.toml", "src/**/*.rs"]
 # Common deps
 scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
 scale-info = { version = "2.3", default-features = false, features = ["derive"] }
-obce-macro = { path = "macro", default-features = false }
+obce-macro = { version = "0.1.0", path = "macro", default-features = false }
 
 # Substrate deps
-sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
-pallet-contracts = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, optional = true }
+sp-core = { version = "23", default-features = false, optional = true }
+sp-runtime = { version = "26", default-features = false, optional = true }
+sp-std = { version = "10", default-features = false, optional = true }
+sp-weights = { version = "22", default-features = false, optional = true }
+frame-support = { version = "23", default-features = false, optional = true }
+frame-system = { version = "23", default-features = false, optional = true }
+pallet-contracts = { version = "22", default-features = false, optional = true }
 
 # Ink deps
 ink = { version = "4.2.0", default-features = false, optional = true }
 ink_engine = { version = "4.2.0", default-features = false, optional = true }
 
 [dev-dependencies]
-frame-support = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, features = ["std"] }
-frame-system = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.43", default-features = false, features = ["std"] }
+frame-support = { version = "23", default-features = false, features = ["std"] }
+frame-system = { version = "23", default-features = false, features = ["std"] }
 ink = { version = "4.2.0", default-features = false, features = ["std"] }
 trybuild = "1.0"
 
@@ -72,6 +73,7 @@ substrate-std = [
     "sp-core/std",
     "sp-runtime/std",
     "sp-std/std",
+    "sp-weights/std",
 ]
 ink-std = [
     "std",

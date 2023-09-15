@@ -9,9 +9,33 @@ error[E0433]: failed to resolve: use of undeclared type `Error`
    |
 14 |     assert_encode_holds(Error::One);
    |                         ^^^^^ use of undeclared type `Error`
+   |
+help: consider importing one of these items
+   |
+1  + use core::error::Error;
+   |
+1  + use core::fmt::Error;
+   |
+1  + use frame_system::Error;
+   |
+1  + use scale::Error;
+   |
+     and 4 other candidates
 
 error[E0433]: failed to resolve: use of undeclared type `Error`
   --> tests/ui/substrate/error/fail_enforced_ret_val.rs:15:27
    |
 15 |     assert_try_from_holds(Error::One);
    |                           ^^^^^ use of undeclared type `Error`
+   |
+help: consider importing one of these items
+   |
+1  + use core::error::Error;
+   |
+1  + use core::fmt::Error;
+   |
+1  + use frame_system::Error;
+   |
+1  + use scale::Error;
+   |
+     and 4 other candidates

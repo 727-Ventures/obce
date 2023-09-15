@@ -1,5 +1,5 @@
 use obce::substrate::{
-    frame_support::dispatch::Weight,
+    sp_weights::Weight,
     frame_system::Config as SysConfig,
     pallet_contracts::Config as ContractConfig,
     sp_runtime::traits::StaticLookup,

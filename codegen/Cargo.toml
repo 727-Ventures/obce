@@ -5,10 +5,10 @@ authors = ["727.Ventures <green.baneling@727.ventures>"]
 edition = "2021"
 
 license = "MIT"
-repository = "TODO:"
-documentation = "TODO:"
+repository = "https://github.com/Brushfam/obce"
+documentation = "https://github.com/Brushfam/obce/blob/main/README.md"
 homepage = "https://727.ventures"
-description = "TODO:"
+description = "The library provides tools and primitives to simplify the development of chain extensions for ink! and Substrate."
 keywords = ["wasm", "727.ventures", "smart-contracts", "blockchain", "ink"]
 categories = ["no-std", "embedded"]
 include = ["Cargo.toml", "src/**/*.rs"]

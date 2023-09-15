@@ -1,4 +1,4 @@
-use frame_support::dispatch::Weight;
+use sp_weights::Weight;
 use frame_system::Config as SysConfig;
 use pallet_contracts::chain_extension::{
     BufInBufOutState,

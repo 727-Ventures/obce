@@ -33,6 +33,7 @@ pub use pallet_contracts;
 pub use sp_core;
 pub use sp_runtime;
 pub use sp_std;
+pub use sp_weights;
 
 use core::marker::PhantomData;
 
