@@ -18,7 +18,7 @@ repository = "https://github.com/Brushfam/obce"
 documentation = "https://github.com/Brushfam/obce/blob/main/README.md"
 homepage = "https://727.ventures"
 description = "OpenBursh chain extension(OBCE) - util to simplify chain extension development."
-keywords = ["wasm", "727.ventures", "smart-contracts", "blockchain", "chain-extension"]
+keywords = ["wasm", "smart-contracts", "blockchain", "chain-extension"]
 categories = ["no-std", "embedded"]
 include = ["Cargo.toml", "src/**/*.rs"]
 
